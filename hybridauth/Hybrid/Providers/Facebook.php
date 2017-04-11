@@ -42,6 +42,8 @@ class Hybrid_Providers_Facebook extends Hybrid_Provider_Model {
             throw new Exception("Your application id and secret are required in order to connect to {$this->providerId}.", 4);
         }
 
+        require_once Hybrid_Auth::$config["path_libraries"] . "Facebook/autoload.php";
+        
         if (isset($this->config['scope'])) {
             $scope = $this->config['scope'];
             if (is_string($scope)) {
